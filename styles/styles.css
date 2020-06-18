@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
+
+body {
+    background-color: #252c2d;
+}
+
+
+
+#calc-body {
+    display              : grid;
+    background-color     : rgb(76, 102, 126);
+    margin               : auto;
+    width                : 400px;
+    height               : 400px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows   : repeat(6, 1fr);
+    grid-gap             : 1rem;
+    justify-items        : center;
+    align-items          : center;
+    padding              : 2rem;
+    border-radius        : 0.5rem;
+    margin-top           : 2rem;
+}
+
+#calc-display {
+    background-color: #c4c4c4;
+    color           : #252c2d;
+    text-align      : right;
+    line-height     : 2.5rem;
+    font-size       : 2rem;
+    grid-area       : 1/1/2/5;
+    width           : 100%;
+    height          : 100%;
+    border-radius   : 0.5rem;
+    font-family     : 'Baumans', 'Courier New', Courier, monospace;
+}
+
+#calc-display p {
+    padding: 0.7rem 1rem;
+}
+
+button {
+    color           : #c4c4c4;
+    width           : 100%;
+    height          : 100%;
+    text-align      : center;
+    font-size       : 1.6rem;
+    background-color: #252c2d;
+    border          : none;
+    border-radius   : 1.5rem;
+    font-family     : 'Baumans', Arial, Helvetica, sans-serif;
+    box-shadow      : 2px 1px #475457;
+}
+
+#calc-add {
+    grid-area: 3/4/5/5;
+}
+
+#calc-equals {
+    grid-area: 5/4/7/5;
+}
+
+#calc-zero {
+    grid-area: 6/1/7/3;
+}
+
+button.btn-num {
+    background-color: #333c3e;
+}
+
+button#calc-clear {
+    background-color: #4d1a06;
+}
