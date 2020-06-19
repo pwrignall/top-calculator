@@ -27,7 +27,7 @@ body {
     font-size       : 2rem;
     grid-area       : 1/1/2/5;
     width           : 100%;
-    height          : 5rem;
+    height          : 6rem;
     border-radius   : 0.5rem;
     font-family     : 'Baumans', 'Courier New', Courier, monospace;
 }
@@ -67,7 +67,7 @@ button {
     grid-area: 6/1/7/3;
 }
 
-button.num {
+button.num, button#calc-point {
     background-color: #333c3e;
 }
 

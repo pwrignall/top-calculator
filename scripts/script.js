@@ -50,14 +50,35 @@ function getNumInput(e) {
     btnEquals.addEventListener('click', runOperation);
 }
 
+function getPointInput(e) {
+    if (operationComplete === true) { allClear(); }
+    if (numberInput === '') { numberInput = '0'; }
+    numberInput += e.target.textContent;
+    outputDisplay.textContent = numberInput;
+    btnPoint.removeEventListener('click', getPointInput);
+    btnEquals.removeEventListener('click', runOperation);
+    btnOp.forEach(button => button.removeEventListener('click', getOpInput));
+}
+
 function getOpInput(e) {
+    if (operationComplete === true) {
+        const previousResult = outputDisplay.textContent;
+        allClear();
+        operatorInput = e.target.textContent;
+        infixString = previousResult;
+    }
     operatorInput = e.target.textContent;
     infixString = infixString + numberInput + operatorInput;
     outputDisplay.textContent = 0;
     numberInput = '';
     inputDisplay.textContent = infixString;
+    inputDisplay.scrollTo({
+        left: inputDisplay.scrollLeftMax,
+        behavior: 'smooth'
+    });
     btnOp.forEach(button => button.removeEventListener('click', getOpInput));
     btnEquals.removeEventListener('click', runOperation);
+    btnPoint.addEventListener('click', getPointInput);
 }
 
 let testArray = ["1", "+", "2", "×", "3", "−", "4"];
@@ -147,6 +168,7 @@ function runOperation(e) {
     const rpnArray = infixToPostfix(splitArray);
     outputDisplay.textContent = rpnEvaluate(rpnArray);
     operationComplete = true;
+    btnOp.forEach(button => button.addEventListener('click', getOpInput));
 }
 
 const btnNumber = document.querySelectorAll('button.num');
@@ -159,5 +181,8 @@ const outputDisplay = document.querySelector('p#output');
 
 const btnClear = document.querySelector('button#calc-clear');
 btnClear.addEventListener('click', allClear);
+
+const btnPoint = document.querySelector('button#calc-point');
+btnPoint.addEventListener('click', getPointInput);
 
 allClear();
