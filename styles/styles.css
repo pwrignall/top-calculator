@@ -4,8 +4,6 @@ body {
     background-color: #252c2d;
 }
 
-
-
 #calc-body {
     display              : grid;
     background-color     : rgb(76, 102, 126);
@@ -26,17 +24,22 @@ body {
     background-color: #c4c4c4;
     color           : #252c2d;
     text-align      : right;
-    line-height     : 2.5rem;
     font-size       : 2rem;
     grid-area       : 1/1/2/5;
     width           : 100%;
-    height          : 100%;
+    height          : 5rem;
     border-radius   : 0.5rem;
     font-family     : 'Baumans', 'Courier New', Courier, monospace;
 }
 
-#calc-display p {
-    padding: 0.7rem 1rem;
+p#output {
+    padding: 0.7rem 1rem 0.7rem 1rem;
+}
+
+p#input {
+    padding  : 0.7rem 1rem 0 1rem;
+    font-size: 1rem;
+    overflow : auto;
 }
 
 button {
@@ -64,10 +67,14 @@ button {
     grid-area: 6/1/7/3;
 }
 
-button.btn-num {
+button.num {
     background-color: #333c3e;
 }
 
 button#calc-clear {
     background-color: #4d1a06;
+}
+
+button {
+    cursor: pointer;
 }
